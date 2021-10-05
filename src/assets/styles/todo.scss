@@ -1,0 +1,142 @@
+* {
+	margin: 0;
+	padding: 0;
+	border-box: box-sizing;
+}
+body {
+	position: relative;
+	font-family:'Open Sans', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #19F4BD,
+}
+button {
+	cursor: pointer;
+	color: #fff;
+	border: none;
+
+}
+.btn-blue {
+	color: #0000FF;
+}
+.btn-red {
+	color: #FF3333;
+}
+.done {
+	text-decoration: line-through;
+}
+
+
+.todo-app {
+	width: 500px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 20px;
+	// background: #EDE574;
+	// background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574);
+	// background: linear-gradient(to right, #E1F5C4, #EDE574); 
+	text-align: center;
+	margin-top: 100px;
+	box-shadow: 8px 14px 60px rgba(0, 0, 0, 0.4);
+	background: rgba(0,235,255,0.40);
+  	backdrop-filter: blur(10px);
+
+}
+
+.form-add {
+	background: #DDDDDD;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 6px;
+
+	&__item {
+		width: 80%;
+		padding: 5px;
+		outline: none;
+		border: none;
+		background: #DDDDDD;
+	}
+
+	&__click {
+		padding: 5px 10px;
+		background: #DDDDDD;
+		cursor: pointer;
+		border: none;
+		outline: none;
+	}
+	&__click i {
+		color: #0066FF;
+	}
+	&__click i:hover {
+		color: #FF3366;
+	}
+	
+}
+
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 15px;
+	&__check {
+		display: flex;
+		grid-gap: 10px;
+		align-items: center;
+		&--update {
+			border: none;
+      		outline: none;
+      		padding: 5px 10px;
+      		border-radius: 10px;
+		}
+	}
+	&__btn {
+		&--delete {
+			margin-left: 10px;
+			padding: 5px 8px;
+			border-radius: 10px;
+		}
+		&--edit {
+			padding: 5px 8px;
+			border-radius: 10px;
+		}
+	}
+}
+
+.btn-clear {
+	position: relative;
+	z-index: 1;
+	margin-top: 20px;
+	padding: 10px 50px;
+	cursor: pointer;
+	background: #00CCFF;
+	border-radius: 10px;
+	font-weight: bold;
+	border: none;
+	color: black;
+}
+
+.btn-clear::before {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: "";
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: auto;
+	transition: all 0.5s linear;
+	width: 0;
+	height: 100%;
+	background: #FF3366;
+	border-radius: 10px;
+}
+.btn-clear:hover::before {
+	width: 100%;
+	right: auto;
+	left: 0;
+}
+.btn-clear:hover {
+	color: #fff; 
+}
