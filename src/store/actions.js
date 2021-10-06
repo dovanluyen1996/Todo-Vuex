@@ -5,25 +5,22 @@ const resource_url = "https://jsonplaceholder.typicode.com/todos?_limit=4";
 export default {
 
 	async fetchTodos({ commit }) {
-        const response = await axios.get(resource_url);    
-        commit('setTodos', response.data);
-    },
+		const response = await axios.get(resource_url);    
+		commit('setTodos', response.data);
+	},
 
 	async addTodo( {commit} , todo) {
-		const respon = await axios.post(resource_url, todo)
-		commit("add_todo", respon.data);
+		const response = await axios.post(resource_url, todo)
+		commit("add_todo", response.data);
 	},
 
-	// updateTodo( {commit} , todo) {
-	// 	commit("update_todo", todo);
-	// },
-
-	async deleteTodo( {commit} , id) {
-		commit("delete_todo", id);
+	deleteTodo({commit}, todo) {
+		commit("delete_Todo", todo)
 	},
 
-	async deleteAll( {commit} , id) {
+	deleteAll( {commit} , id) {
 		commit("delete_All", id);
 	},
+
 
 }

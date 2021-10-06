@@ -1,6 +1,6 @@
 <template>
 	<div class="todo-app">
-		<h1>{{ title }}</h1>
+		<h1>Todo List</h1>
 		<div class="form-add">
 			<input 
 				class="form-add__item" 
@@ -11,10 +11,10 @@
 			<button class="form-add__click" @click="addTodos"><i class="fas fa-plus"></i></button>
 		</div>
 		<todo-item 
-		v-for=" (todo,index) in allTodos " 
-		v-bind:key="index.id" 
-		v-bind:todoProps="todo" 
-		v-bind:done="done"
+			v-for=" (todo,index) in allTodos " 
+			v-bind:key="index.id" 
+			v-bind:todo="todo" 
+			v-bind:done="done"
 		/>
 		
 		<button class="btn-clear btn-red" @click="deleteAll">Clear All</button>
@@ -31,7 +31,6 @@
 
 		data() {
 			return {
-				title: 'Todo List',
 				todoText: ""
 			};
 		},
@@ -41,18 +40,19 @@
 		},
 
 		methods: {
-
 			...mapActions(['addTodo','deleteAll', 'fetchTodos']),
 
 			addTodos(){
 				this.addTodo({
 					id: v1(),
 					title: this.todoText,
+					completed: false
 				});
 				this.todoText = "";
-			}
+			},
 		},
 
+		//hien thi ds todo API
 		created() {
 			this.fetchTodos()
 		},

@@ -4,9 +4,13 @@ export default {
 		state.newTodos = state.todos;
 	},
 
-	delete_todo(state, id) {
-		state.todos = state.todos.filter((todo) => todo.id != id);
-			// state.newTodos = state.todos;
+
+	delete_Todo(state, id) {
+		for(let i=0;i<state.todos.length;i++){
+			if(id === state.todos[i].id){
+				state.todos.splice(i,1)
+			}
+		}
 	},
 
 	delete_All(state) {
